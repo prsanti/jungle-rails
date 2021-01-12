@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "ProductDetails", type: :feature, js: true do
+RSpec.feature "AddToCarts", type: :feature, js: true do
   before :each do
     @category = Category.create! name: 'Apparel'
 
@@ -15,13 +15,14 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
-  scenario "They click the details button of a product" do
+  scenario "They click the add button of a product" do
     visit root_path
+    # puts page.html
 
-    productDetailsButton = page.first("article.product").find_link("Details")
-    productDetailsButton.click
+    productAddButton = page.first("article.product").find_button("Add")
+    productAddButton.click
 
-    expect(page).to have_link("Apparel")
-    save_screenshot("product-details-click.png")
+    expect(page).to have_content("Login")
+    save_screenshot("product-add-click.png")
   end
 end
