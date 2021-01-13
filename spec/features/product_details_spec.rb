@@ -24,15 +24,4 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     expect(page).to have_link("Apparel")
     save_screenshot("product-details-click.png")
   end
-
-  scenario "They click the add button of a product" do
-    visit root_path
-    # puts page.html
-
-    productAddButton = page.first("article.product").find_button("Add")
-    productAddButton.click
-
-    expect(page).to have_content("Login")
-    save_screenshot("product-add-click.png")
-  end
 end
