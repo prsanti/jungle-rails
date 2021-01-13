@@ -2,6 +2,17 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Final Product
+# Homepage
+!["Screenshot of Homepage"](https://github.com/prsanti/jungle-rails/blob/master/docs/jungle-homepage.png)
+# Product Page Example
+!["Screenshot of Product Page"](https://github.com/prsanti/jungle-rails/blob/master/docs/jungle-product-page.png)
+# Checkout
+!["Screenshot of Checkout"](https://github.com/prsanti/jungle-rails/blob/master/docs/jungle-checkout.png)
+# Stripe Implementation
+!["Screenshot of Stripe"](https://github.com/prsanti/jungle-rails/blob/master/docs/jungle-stripe.png)
+# Order Confirmation
+!["Screenshot of Order Confirmation"](https://github.com/prsanti/jungle-rails/blob/master/docs/jungle-order-confirmation.png)
 
 ## Setup
 
