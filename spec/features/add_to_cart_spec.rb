@@ -13,16 +13,35 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
         price: 64.99
       )
     end
+
   end
 
   scenario "They click the add button of a product" do
     visit root_path
-    # puts page.html
 
-    productAddButton = page.first("article.product").find_button("Add")
-    productAddButton.click
+    # user has to sign up before they can add to cart
+    signupButton = page.find_link("Signup")
+    signupButton.click
 
-    expect(page).to have_content("Login")
-    save_screenshot("product-add-click.png")
+    expect(page).to have_content("Sign Up!")
+
+    # fill in sign up form
+    fill_in 'user[first_name]', with: 'test'
+    fill_in 'user[last_name]', with: 'test'
+    fill_in 'user[email]', with: 'test@email.com'
+    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password_confirmation]', with: 'password'
+
+    submitSignUp = page.find_button("Submit")
+    submitSignUp.click
+    save_screenshot("signup-click.png")
+
+    # check if cart is updated
+    expect(page.find("#navbar")).to have_link("My Cart (0)")
+
+    page.first("article.product").click_button("Add")
+
+    expect(page.find("#navbar")).to have_link("My Cart (1)")
+    save_screenshot("updated-cart.png")
   end
 end
